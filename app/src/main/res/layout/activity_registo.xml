@@ -25,13 +25,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgNome"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_RNome"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -53,13 +53,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgPassword"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_RPassword"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -81,13 +81,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgEmail"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_REmail"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -109,13 +109,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgUsername"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_RUsername"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -125,33 +125,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:orientation="horizontal">
 
-            <Space
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_add" />
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Password" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,13 +139,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgNrSaude"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_RNrUtente"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -193,13 +167,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgNrCivil"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_RNrCivil"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -221,13 +195,13 @@
                 android:layout_weight="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgMorada"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_RMorada"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
