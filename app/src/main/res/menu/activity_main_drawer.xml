@@ -4,21 +4,37 @@
 
     <group android:checkableBehavior="single" >
         <item
-            android:id="@+id/nav_estatico"
+            android:id="@+id/nav_Homepage"
             android:icon="@drawable/ic_consulta"
-            android:title="Livros Lista" />
+            android:title="Página Inicial" />
         <item
-            android:id="@+id/nav_dinamico"
+            android:id="@+id/nav_Consulta"
             android:icon="@drawable/ic_consulta"
-            android:title="Livros Grelha" />
+            android:title="Consultas" />
+        <item
+            android:id="@+id/nav_Fichastecnicas"
+            android:icon="@drawable/ic_consulta"
+            android:title="Fichas Técnicas" />
+        <item
+            android:id="@+id/nav_Receitas"
+            android:icon="@drawable/ic_consulta"
+            android:title="Receitas" />
+        <item
+            android:id="@+id/nav_NotificacaoMedicamentos"
+            android:icon="@drawable/ic_consulta"
+            android:title="Notificação de Medicamentos" />
     </group>
 
-    <item android:title="Comunicar">
+    <item android:title="----------------------">
         <menu>
             <item
-                android:id="@+id/nav_email"
+                android:id="@+id/nav_definicoes"
                 android:icon="@drawable/ic_consulta"
-                android:title="E-Mail" />
+                android:title="Definicoes" />
+            <item
+                android:id="@+id/nav_LogOut"
+                android:icon="@drawable/ic_consulta"
+                android:title="Log out" />
         </menu>
     </item>
 

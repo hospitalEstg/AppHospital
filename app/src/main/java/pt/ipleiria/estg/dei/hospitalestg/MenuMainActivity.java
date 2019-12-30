@@ -1,18 +1,24 @@
 package pt.ipleiria.estg.dei.hospitalestg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
+
+import pt.ipleiria.estg.dei.hospitalestg.modelo.Consulta;
 
 
 public class MenuMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
@@ -48,11 +54,11 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     private void carregarFragmentoInicial(){
         Fragment fragment = new ConsultasFragment();
         setTitle(navigationView.getMenu().getItem(0).getTitle());
-        navigationView.setCheckedItem(R.id.nav_estatico);
+        navigationView.setCheckedItem(R.id.nav_Homepage);
         fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
 
     }
- //TODO 7.1
+
     private void carregarCabeçalho() {
        View hView = navigationView.getHeaderView(0);
     }
@@ -60,6 +66,30 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+
+        Fragment fragment = null;
+
+        switch(menuItem.getItemId()) {
+            case R.id.nav_Consulta:
+                fragment = new ConsultasFragment();
+                setTitle(menuItem.getTitle());
+                Toast.makeText(getApplicationContext(),"hora", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                fragment= new ConsultasFragment();
+
+        }
+
+        if (fragment != null) {
+            fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
+        }
+        drawer.closeDrawer(GravityCompat.START); //FECHAR AO CLICAR NUM ITEM NO MENU
+
+        return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
