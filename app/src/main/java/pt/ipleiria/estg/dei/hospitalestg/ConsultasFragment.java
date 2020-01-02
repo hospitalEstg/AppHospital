@@ -59,6 +59,13 @@ public class ConsultasFragment extends Fragment implements ConsultaListener {
         lvConsultas = view.findViewById(R.id.lvConsultas);
         fab = view.findViewById(R.id.fab);
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), PedidoActivity.class);
+                startActivityForResult(intent,ADD);
+            }
+        });
 
         SingletonGestorHospital.getInstance(getContext()).setConsultaListener(this);
         return view;
