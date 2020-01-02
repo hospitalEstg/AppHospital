@@ -13,18 +13,31 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hospital ESTG"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@color/colorAccent"
-            tools:srcCompat="@tools:sample/avatars[0]" />
+            android:layout_height="156dp"
+            android:src="@drawable/frontimage" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="50dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,8 +52,8 @@
             <ImageView
                 android:id="@+id/imageUsername"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_add" />
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/user" />
 
             <EditText
                 android:id="@+id/et_LUsername"
@@ -52,6 +65,11 @@
                 android:text="Username" />
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,8 +85,8 @@
             <ImageView
                 android:id="@+id/imgPassword"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_add" />
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/password" />
 
             <EditText
                 android:id="@+id/et_LPassword"
@@ -124,6 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:onClick="registar"
                 android:text="Registar" />
 
         </LinearLayout>
