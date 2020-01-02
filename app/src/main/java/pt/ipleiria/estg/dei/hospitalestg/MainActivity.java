@@ -22,4 +22,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // fechar atividade atual
     }
+
+    public void registar(View view) {
+        //Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
+        //intent.putExtra("Username", email);
+        startActivity(intent);
+        finish(); // fechar atividade atual
+    }
 }
