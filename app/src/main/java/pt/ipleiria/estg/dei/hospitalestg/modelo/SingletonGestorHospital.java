@@ -18,8 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pt.ipleiria.estg.dei.hospitalestg.listeners.ConsultaListener;
+import pt.ipleiria.estg.dei.hospitalestg.listeners.FtecnicaListener;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.PedidoListener;
 import pt.ipleiria.estg.dei.hospitalestg.utils.ConsultaJsonParser;
+import pt.ipleiria.estg.dei.hospitalestg.utils.FtecnicaJsonParser;
 import pt.ipleiria.estg.dei.hospitalestg.utils.PedidoJsonParser;
 
 
@@ -38,8 +40,12 @@ public class SingletonGestorHospital {
     private static RequestQueue volleyQueue;
     private ConsultaListener consultaListener;
 
+    private ArrayList<Ftecnica> fTecnica;
+    private final String mUrlAPIFtecnica = "http://10.0.2.2/Projecto-master/backend/web/api/ftec";
+    private FtecnicaListener ftecnicaListener;
 
-    //  private ConsultaListener consultaListener;
+
+
 
 
     public static synchronized SingletonGestorHospital getInstance(Context context) {
@@ -60,6 +66,8 @@ public class SingletonGestorHospital {
 
         pedidos = new ArrayList<>();
 
+        fTecnica = new ArrayList<>();
+
 
 
     }
@@ -68,9 +76,24 @@ public class SingletonGestorHospital {
         this.pedidoListener = pedidoListener;
      }
 
+
+
      public Pedido getPedido(int idpedido){
         for (Pedido I: pedidos) {
             if(I.getIdPedido() == idpedido) {
+                return I;
+            }
+        }
+        return null;
+     }
+
+     public void setFtecnicaListener (FtecnicaListener ftecnicaListener) {
+        this.ftecnicaListener = ftecnicaListener;
+     }
+
+     public Ftecnica getFtecnica (int  idftecnica){
+        for (Ftecnica I: fTecnica) {
+            if(I.getIdFtecnica() == idftecnica) {
                 return I;
             }
         }
@@ -96,7 +119,7 @@ public class SingletonGestorHospital {
         return consultas;
     }
 
-    // ***API****
+    // *****************************************API************************************************************************
 
     public void getAllConsultasAPI(final Context context, boolean isConnected) {
         if (!isConnected) {
@@ -186,6 +209,35 @@ public class SingletonGestorHospital {
 
         };
         volleyQueue.add(req);
+    }
+
+    public void getAllFtecnicasAPI(final Context context, boolean isConnected){
+        if(!isConnected){
+            Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show();
+
+
+            if(ftecnicaListener !=null)
+                ftecnicaListener.onRefreshFtecnica(fTecnica);
+        }
+        else {
+            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, mUrlAPIFtecnica, null, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    fTecnica = FtecnicaJsonParser.parserJsonFtecnica(response,context);
+
+                    if(ftecnicaListener!=null)
+                        ftecnicaListener.onRefreshFtecnica(fTecnica);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            volleyQueue.add(req);
+        }
+
+
     }
 
 

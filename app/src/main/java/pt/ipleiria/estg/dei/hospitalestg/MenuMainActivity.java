@@ -73,7 +73,12 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
             case R.id.nav_Consulta:
                 fragment = new ConsultasFragment();
                 setTitle(menuItem.getTitle());
-                Toast.makeText(getApplicationContext(),"hora", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.nav_Fichastecnicas:
+                fragment = new FtecnicaFragment();
+                setTitle(menuItem.getTitle());
+
                 break;
             default:
                 fragment= new ConsultasFragment();
