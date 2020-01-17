@@ -20,6 +20,8 @@ import java.util.Map;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.ConsultaListener;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.FtecnicaListener;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.PedidoListener;
+import pt.ipleiria.estg.dei.hospitalestg.listeners.PessoaListener;
+import pt.ipleiria.estg.dei.hospitalestg.listeners.UserListener;
 import pt.ipleiria.estg.dei.hospitalestg.utils.ConsultaJsonParser;
 import pt.ipleiria.estg.dei.hospitalestg.utils.FtecnicaJsonParser;
 import pt.ipleiria.estg.dei.hospitalestg.utils.PedidoJsonParser;
@@ -43,6 +45,14 @@ public class SingletonGestorHospital {
     private ArrayList<Ftecnica> fTecnica;
     private final String mUrlAPIFtecnica = "http://10.0.2.2/Projecto-master/backend/web/api/ftec";
     private FtecnicaListener ftecnicaListener;
+
+    private ArrayList<User> users;
+    private final String mUrlAPIUser = "http://10.0.2.2/Projecto-master/backend/web/api/users";
+    private UserListener userListener;
+
+    private ArrayList<Pessoa> pessoas;
+    private final String mUrlAPIPessoa = "http://10.0.2.2/Projecto-master/backend/web/api/pess";
+    private PessoaListener pessoaListener;
 
 
 
@@ -238,6 +248,74 @@ public class SingletonGestorHospital {
         }
 
 
+    }
+
+    public void adicionarUserAPI(final User user,final Context context) {
+
+        StringRequest req = new StringRequest(Request.Method.POST, mUrlAPIUser, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //  onUpdatePedido(PedidoJsonParser.parserJsonPedidos(response, context), ADICIONAR_BD);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+
+
+            @Override
+            protected Map<String, String> getParams()  {
+                //chave valor MAP
+                Map<String, String> params = new HashMap<>();
+                //pode se ter nos headers
+                //params.put("token", tokenAPI);
+                params.put("username", user.getUsername()+"");
+                params.put("email", user.getEmail());
+
+
+                return params;
+            }
+
+
+        };
+        volleyQueue.add(req);
+    }
+
+    public void adicionarPessoaAPI(final Pessoa pessoa,final Context context) {
+
+        StringRequest req = new StringRequest(Request.Method.POST, mUrlAPIPessoa, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //  onUpdatePedido(PedidoJsonParser.parserJsonPedidos(response, context), ADICIONAR_BD);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+
+
+            @Override
+            protected Map<String, String> getParams()  {
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put("Nome", pessoa.getNome()+"");
+                params.put("DataNascimento", pessoa.getDatanascimento()+"");
+                params.put("Morada", pessoa.getMorada()+"");
+                params.put("NumUtenteSaude", pessoa.getNumutentesaude()+"");
+                params.put("NumIDCivil", pessoa.getNumidcivil()+"");
+                params.put("TipoUtilizador", pessoa.getTipoutilizador()+"");
+
+                return params;
+            }
+
+
+        };
+        volleyQueue.add(req);
     }
 
 
