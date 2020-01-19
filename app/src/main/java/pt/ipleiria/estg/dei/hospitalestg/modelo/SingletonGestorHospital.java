@@ -20,6 +20,8 @@ import java.util.Map;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.ConsultaListener;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.FtecnicaListener;
 import pt.ipleiria.estg.dei.hospitalestg.listeners.PedidoListener;
+import pt.ipleiria.estg.dei.hospitalestg.listeners.PessoaListener;
+import pt.ipleiria.estg.dei.hospitalestg.listeners.UserListener;
 import pt.ipleiria.estg.dei.hospitalestg.utils.ConsultaJsonParser;
 import pt.ipleiria.estg.dei.hospitalestg.utils.FtecnicaJsonParser;
 import pt.ipleiria.estg.dei.hospitalestg.utils.PedidoJsonParser;
@@ -36,7 +38,7 @@ public class SingletonGestorHospital {
     private ArrayList<Consulta> consultas;
     private static SingletonGestorHospital instance = null;
     private ConsultaBDHelper consultasBD;
-    private final String mUrlAPIConsultas = "http://10.0.2.2/Projecto-master/backend/web/api/cons";
+    private final String mUrlAPIConsultas = "http://10.0.2.2/Projecto-master/backend/web/api/cons?access-token=003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
     private static RequestQueue volleyQueue;
     private ConsultaListener consultaListener;
 
@@ -44,11 +46,13 @@ public class SingletonGestorHospital {
     private final String mUrlAPIFtecnica = "http://10.0.2.2/Projecto-master/backend/web/api/ftec";
     private FtecnicaListener ftecnicaListener;
 
-    private final String tokenAPI="003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
 
+    private ArrayList<Pessoa> pessoas;
+   
+    private final String mUrlAPIPessoa = "http://10.0.2.2/Projecto-master/backend/web/api/pess?access-token=003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
+    private PessoaListener pessoaListener;
 
-
-
+/
     public static synchronized SingletonGestorHospital getInstance(Context context) {
 
         if (instance == null) {
@@ -60,7 +64,7 @@ public class SingletonGestorHospital {
 
         return instance;
     }
-
+    
     private SingletonGestorHospital(Context context) {
         consultas = new ArrayList<>();
         consultasBD = new ConsultaBDHelper(context);
@@ -106,6 +110,11 @@ public class SingletonGestorHospital {
         this.consultaListener = consultaListener;
     }
 
+    public void setPessoaListener(PessoaListener pessoaListener) {
+        this.pessoaListener = pessoaListener;
+    }
+
+
     public Consulta getConsulta(int id) {
         for (Consulta I : consultas) {
             if (I.getId() == id) {
@@ -119,6 +128,8 @@ public class SingletonGestorHospital {
         consultas = consultasBD.getAllConsultasDB();
         return consultas;
     }
+
+
 
     // *****************************************API************************************************************************
 
@@ -239,6 +250,76 @@ public class SingletonGestorHospital {
         }
 
 
+    }
+
+    public void adicionarUserAPI(final User user,final Context context) {
+
+        StringRequest req = new StringRequest(Request.Method.POST, mUrlAPIUser, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //  onUpdatePedido(PedidoJsonParser.parserJsonPedidos(response, context), ADICIONAR_BD);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+
+
+            @Override
+            protected Map<String, String> getParams()  {
+                //chave valor MAP
+                Map<String, String> params = new HashMap<>();
+                //pode se ter nos headers
+                //params.put("token", tokenAPI);
+                params.put("username", user.getUsername()+"");
+                params.put("email", user.getEmail());
+
+
+                return params;
+            }
+
+
+        };
+        volleyQueue.add(req);
+    }
+
+
+    public void adicionarPessoaAPI(final Pessoa pessoa,final Context context) {
+
+        StringRequest req = new StringRequest(Request.Method.POST, mUrlAPIPessoa, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // onUpdatePessoa(PedidoJsonParser.parserJsonPedidos(response, context));
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+
+
+            @Override
+            protected Map<String, String> getParams()  {
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put("Nome", pessoa.getNome()+"");
+                params.put("DataNascimento", pessoa.getDatanascimento()+"");
+                params.put("Morada", pessoa.getMorada()+"");
+                params.put("NumUtenteSaude", pessoa.getNumutentesaude()+"");
+                params.put("NumIDCivil", pessoa.getNumidcivil()+"");
+                params.put("TipoUtilizador", pessoa.getTipoutilizador()+"");
+                params.put("idUser", "1");
+
+                return params;
+            }
+
+
+        };
+        volleyQueue.add(req);
     }
 
 
