@@ -62,7 +62,22 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     private void carregarCabeçalho() {
        View hView = navigationView.getHeaderView(0);
     }
+/*
+ /*   private void carregarCabecalho() {
 
+        SharedPreferences sharedPreferences = getSharedPreferences(INFO_USER, Context.MODE_PRIVATE);
+        token = getIntent().getStringExtra("token");
+
+        if(token!=null)
+        {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("token", token);
+            editor.apply();
+        }
+        else
+        {
+            sharedPreferences.getString("token", "Sem token");
+        }*/
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

@@ -44,6 +44,7 @@ public class SingletonGestorHospital {
     private final String mUrlAPIFtecnica = "http://10.0.2.2/Projecto-master/backend/web/api/ftec";
     private FtecnicaListener ftecnicaListener;
 
+    private final String tokenAPI="003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
 
 
 
@@ -130,7 +131,7 @@ public class SingletonGestorHospital {
             if (consultaListener != null)
                 consultaListener.onRefreshConsulta(consultas);
         } else {
-            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, mUrlAPIConsultas, null, new Response.Listener<JSONArray>() {
+            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, mUrlAPIConsultas+"api/cons?acess-token="+tokenAPI, null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     consultas = ConsultaJsonParser.parserJsonConsultas(response, context);

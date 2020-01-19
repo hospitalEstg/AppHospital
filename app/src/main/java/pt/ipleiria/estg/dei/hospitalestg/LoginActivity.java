@@ -2,13 +2,14 @@ package pt.ipleiria.estg.dei.hospitalestg;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final int PASS_MIN_SIZE = 8;
+    private static final int PASS_MIN_SIZE = 6;
     private EditText et_username, et_password;
 
 
@@ -32,9 +33,18 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickLogin(View view) {
 
 
-        String username = et_username.getText().toString();
+        String email = et_username.getText().toString();
         String password = et_password.getText().toString();
 
+        if (!isEmailValid(email)) {
+            et_username.setError("E-mail inválido.");
+            return;
+        }
+
+        if (!isPasswordValid(password)) {
+            et_password.setError("Password inválida.");
+            return;
+        }
 
 
         // nova atividade
@@ -44,6 +54,21 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // fechar atividade atual
 
+
+    }
+
+    private boolean isEmailValid(String email) {
+        if(email != null){
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        }
+        return false;
+    }
+
+    private boolean isPasswordValid(String password){
+        if(password != null){
+            return (password.length() > PASS_MIN_SIZE ? true : false);
+        }
+        return false;
 
     }
 
