@@ -38,7 +38,7 @@ public class SingletonGestorHospital {
     private ArrayList<Consulta> consultas;
     private static SingletonGestorHospital instance = null;
     private ConsultaBDHelper consultasBD;
-    private final String mUrlAPIConsultas = "http://10.0.2.2/Projeto/backend/web/api/cons?access-token=003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
+    private final String mUrlAPIConsultas = "http://10.0.2.2/Projecto-master/backend/web/api/cons?access-token=003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
     private static RequestQueue volleyQueue;
     private ConsultaListener consultaListener;
 
@@ -52,7 +52,7 @@ public class SingletonGestorHospital {
 
     private ArrayList<Pessoa> pessoas;
     //definições da mica : private final String mUrlAPIPessoa = "http://10.0.2.2/Projecto-master/backend/web/api/pess";
-    private final String mUrlAPIPessoa = "http://10.0.2.2/Projeto/backend/web/api/pess?access-token=003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
+    private final String mUrlAPIPessoa = "http://10.0.2.2/Projecto-master/backend/web/api/pess?access-token=003qFCHhsW0Qn5lSi4Hu0-ZR15WNkOch";
     private PessoaListener pessoaListener;
 
 //onde e que mecheste???
