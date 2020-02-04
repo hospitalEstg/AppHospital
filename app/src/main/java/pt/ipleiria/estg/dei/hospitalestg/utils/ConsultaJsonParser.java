@@ -21,10 +21,10 @@ public class ConsultaJsonParser {
                 JSONObject cons = (JSONObject)response.get(i);
                 int id=cons.getInt("idConsulta");
                 String medico= cons.getString("idMedico");
-                System.out.println("-----------------------------------------------------------"+medico);
+
                 String motivo= cons.getString("Descricao");
                 String data=cons.getString("DataConsulta");
-                String hora=cons.getString("TipoConsulta");
+                String hora=cons.getString("hora");
 
 
                 Consulta auxConsulta = new Consulta(id, medico, motivo ,data ,hora);
@@ -48,7 +48,7 @@ public class ConsultaJsonParser {
                 String medico= cons.getString("idMedico");
                 String motivo=cons.getString("Descricao");
                 String data=cons.getString("DataConsulta");
-                String hora = cons.getString("TipoConsulta");
+                String hora = cons.getString("hora");
 
                 auxConsulta = new Consulta(id, medico,motivo,data,hora);
 

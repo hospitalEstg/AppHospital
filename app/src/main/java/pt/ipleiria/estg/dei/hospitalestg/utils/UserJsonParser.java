@@ -57,25 +57,7 @@ public class UserJsonParser {
 
     }
 
-    public static String parserJsonLogin(String response, Context context) {
-        String token =null;
 
-        try {
-            for (int i = 0; i < response.length(); i++) {
-                JSONObject pedido = new JSONObject(response);
-
-                token = pedido.getString("token");
-
-
-
-            }
-        }
-        catch(JSONException e) {
-            e.printStackTrace();
-        }
-        return token;
-
-    }
 
     public static boolean isConnectionInternet(Context context) {
         ConnectivityManager cm =(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);

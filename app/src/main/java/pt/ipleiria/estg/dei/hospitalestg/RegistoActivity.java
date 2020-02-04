@@ -1,7 +1,5 @@
 package pt.ipleiria.estg.dei.hospitalestg;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import pt.ipleiria.estg.dei.hospitalestg.modelo.Pessoa;
 import pt.ipleiria.estg.dei.hospitalestg.modelo.SingletonGestorHospital;
 import pt.ipleiria.estg.dei.hospitalestg.modelo.User;
-import pt.ipleiria.estg.dei.hospitalestg.modelo.Pessoa;
 import pt.ipleiria.estg.dei.hospitalestg.utils.PedidoJsonParser;
 
 public class RegistoActivity extends AppCompatActivity {
@@ -82,5 +82,7 @@ public class RegistoActivity extends AppCompatActivity {
 
         return pessoa;
     }
+
+
 
 }

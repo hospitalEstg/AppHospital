@@ -18,20 +18,16 @@
         android:orientation="horizontal">
 
         <Space
-            android:layout_width="40dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Próximas Consultas:" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="140dp"
+        android:orientation="horizontal"
+        android:background="@drawable/background_consultas">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +40,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
 
                 <TextView
                     android:id="@+id/lb_autor"
@@ -88,7 +87,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/lb_autor3"
                     android:layout_width="wrap_content"

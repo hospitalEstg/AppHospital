@@ -298,6 +298,8 @@
                 android:onClick="onClickRegistar"
                 android:text="Registar" />
 
+
+
         </LinearLayout>
 
     </LinearLayout>

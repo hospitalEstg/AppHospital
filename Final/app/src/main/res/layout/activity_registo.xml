@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgNome"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_RNome"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Nome Completo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgPassword"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_RPassword"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Password" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgEmail"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_REmail"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Email " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgUsername"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_RUsername"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Username" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgNrSaude"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_RNrUtente"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Nº de Utente de Saúde" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgNrCivil"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_RNrCivil"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Nº de ID Civil" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageView
+                android:id="@+id/imgMorada"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+
+            <EditText
+                android:id="@+id/et_RMorada"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Morada" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Registar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

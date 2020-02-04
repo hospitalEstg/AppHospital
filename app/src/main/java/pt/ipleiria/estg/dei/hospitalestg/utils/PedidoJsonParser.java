@@ -22,9 +22,12 @@ public class PedidoJsonParser {
                     JSONObject pedido = (JSONObject)response.get(i);
                     int idPedido = pedido.getInt("idMarcacao_Consulta");
                     String descricao = pedido.getString("Descricao");
-                    Boolean urgente = pedido.getBoolean("Urgente");
+                    int urgente = pedido.getInt("Urgente");
 
-                    Pedido auxPedido = new Pedido (idPedido, descricao, urgente);
+                    int Estado = pedido.getInt("Estado");
+                    int idPessoa = pedido.getInt("Pessoa_idPessoa");
+
+                    Pedido auxPedido = new Pedido (idPedido, descricao, urgente, Estado, idPessoa);
                     pedidos.add(auxPedido);
 
                 }
@@ -43,9 +46,12 @@ public class PedidoJsonParser {
                     JSONObject pedido = new JSONObject(response);
                     int idPedido = pedido.getInt("idMarcacao_Consulta");
                     String descricao = pedido.getString("Descricao");
-                    Boolean urgente = pedido.getBoolean("Urgente");
+                    int urgente = pedido.getInt("Urgente");
 
-                    auxPedido = new Pedido (idPedido, descricao, urgente);
+                    int Estado = pedido.getInt("Estado");
+                    int idPessoa = pedido.getInt("Pessoa_idPessoa");
+
+                    auxPedido = new Pedido (idPedido, descricao, urgente, Estado, idPessoa);
                 }
 
             }

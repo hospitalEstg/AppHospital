@@ -75,7 +75,7 @@ public class ConsultaAdaptor extends BaseAdapter {
 
         public void update (int position){
             Consulta consulta = consultas.get(position);
-            tvMedico.setText(consulta.getMedico());
+            tvMedico.setText("Manel");
             tvMotivo.setText(consulta.getMotivo());
             tvData.setText(consulta.getData());
             tvHora.setText(consulta.getHora());

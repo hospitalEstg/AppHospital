@@ -61,17 +61,19 @@ public class FtecnicaAdaptor extends BaseAdapter {
     }
 
     private class ViewHolderFtecnica {
-        private TextView tvDescricao, tvFicheiro;
+        private TextView tvAssunto, tvObservacoes;
 
         public ViewHolderFtecnica(View view) {
-          tvDescricao   = view.findViewById(R.id.tv_MedicoFtecnica);
+          tvAssunto   = view.findViewById(R.id.tv_Assunto);
+          tvObservacoes   = view.findViewById(R.id.tv_Observacoes);
 
 
         }
 
         public void update (int position) {
             Ftecnica ftecnica = fTecnica.get(position);
-            tvDescricao.setText(ftecnica.getObservacoes());
+            tvAssunto.setText(ftecnica.getFicheiro());
+            tvObservacoes.setText(ftecnica.getObservacoes());
         }
     }
 }

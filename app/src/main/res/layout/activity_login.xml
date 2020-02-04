@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,7 +101,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="80dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -124,7 +124,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,13 +137,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:onClick="registar"
-                android:text="Registar" />
+            <Button
+                android:id="@+id/btn_registo"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:onClick="onClickRegisto"
+                android:text="Registar"
+                 />
 
         </LinearLayout>
 

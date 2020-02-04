@@ -1,9 +1,14 @@
 package pt.ipleiria.estg.dei.hospitalestg;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +30,8 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
    private NavigationView navigationView;
     private DrawerLayout drawer;
     private FragmentManager fragmentManager;
-
+    private static final String INFO_USER = "user";
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,24 +66,25 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void carregarCabeçalho() {
-       View hView = navigationView.getHeaderView(0);
-    }
-/*
- /*   private void carregarCabecalho() {
-
         SharedPreferences sharedPreferences = getSharedPreferences(INFO_USER, Context.MODE_PRIVATE);
-        token = getIntent().getStringExtra("token");
+        email = getIntent().getStringExtra("EMAIL");
 
-        if(token!=null)
+        if(email!=null)
         {
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("token", token);
+            editor.putString("EMAIL", email);
             editor.apply();
         }
         else
         {
-            sharedPreferences.getString("token", "Sem token");
-        }*/
+            sharedPreferences.getString("EMAIL", "Sem E-Mail");
+        }
+
+        View hView = navigationView.getHeaderView(0);
+        TextView nav_user = hView.findViewById(R.id.tv_email);
+        nav_user.setText(email);
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -95,15 +102,31 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 setTitle(menuItem.getTitle());
 
                 break;
+
+            case R.id.nav_Homepage:
+                fragment= new PedidosFragment();
+                setTitle("Pedidos de Consulta");
+            break;
+
+            case R.id.nav_Receitas:
+                fragment= new ReceitasFragment();
+                setTitle(menuItem.getTitle());
+                break;
+            case R.id.nav_LogOut:
+
+                System.exit(0);
+
+
+                break;
             default:
-                fragment= new ConsultasFragment();
+                fragment= new PedidosFragment();
 
         }
 
         if (fragment != null) {
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
         }
-        drawer.closeDrawer(GravityCompat.START); //FECHAR AO CLICAR NUM ITEM NO MENU
+        drawer.closeDrawer(GravityCompat.START);
 
         return true;
     }

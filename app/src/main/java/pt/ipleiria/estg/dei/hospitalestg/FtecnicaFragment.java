@@ -36,7 +36,7 @@ public class FtecnicaFragment extends Fragment implements FtecnicaListener {
 
         lvFTecnica = view.findViewById(R.id.lvFtecnica);
 
-        //TODO : botao detalhes
+
 
         SingletonGestorHospital.getInstance(getContext()).setFtecnicaListener(this);
 

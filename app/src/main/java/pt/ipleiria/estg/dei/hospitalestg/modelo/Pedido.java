@@ -4,14 +4,38 @@ public class Pedido {
     private static int autoIncrement=1;
      int idPedido;
      String Descricao;
-     boolean Urgente;
+     int Urgente;
 
-    public Pedido (int idPedido, String Descricao, boolean Urgente){
+     int Estado ;
+     int idPessoa;
+
+    public Pedido (int idPedido, String Descricao, int Urgente, int Estado, int idPessoa){
 
         this.idPedido = idPedido;
         this.Descricao = Descricao;
         this.Urgente= Urgente;
 
+        this.Estado = Estado;
+        this.idPessoa = idPessoa;
+
+    }
+
+
+
+    public int getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(int estado) {
+        Estado = estado;
+    }
+
+    public int getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(int idPessoa) {
+        this.idPessoa = idPessoa;
     }
 
     public int getIdPedido() {
@@ -30,11 +54,11 @@ public class Pedido {
         Descricao = descricao;
     }
 
-    public boolean isUrgente() {
+    public int getUrgente() {
         return Urgente;
     }
 
-    public void setUrgente(boolean urgente) {
+    public void setUrgente(int urgente) {
         Urgente = urgente;
     }
 }

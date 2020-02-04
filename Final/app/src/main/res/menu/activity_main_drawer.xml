@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_Homepage"
+            android:icon="@drawable/ic_consulta"
+            android:title="Página Inicial" />
+        <item
+            android:id="@+id/nav_Consulta"
+            android:icon="@drawable/ic_consulta"
+            android:title="Consultas" />
+        <item
+            android:id="@+id/nav_Fichastecnicas"
+            android:icon="@drawable/ic_consulta"
+            android:title="Fichas Técnicas" />
+        <item
+            android:id="@+id/nav_Receitas"
+            android:icon="@drawable/ic_consulta"
+            android:title="Receitas" />
+        <item
+            android:id="@+id/nav_NotificacaoMedicamentos"
+            android:icon="@drawable/ic_consulta"
+            android:title="Notificação de Medicamentos" />
+    </group>
+
+    <item android:title="----------------------">
+        <menu>
+            <item
+                android:id="@+id/nav_definicoes"
+                android:icon="@drawable/ic_consulta"
+                android:title="Definicoes" />
+            <item
+                android:id="@+id/nav_LogOut"
+                android:icon="@drawable/ic_consulta"
+                android:title="Log out" />
+        </menu>
+    </item>
+
+</menu>

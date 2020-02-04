@@ -21,9 +21,10 @@ import pt.ipleiria.estg.dei.hospitalestg.utils.ConsultaJsonParser;
 import pt.ipleiria.estg.dei.hospitalestg.utils.PedidoJsonParser;
 
 public class PedidoActivity extends AppCompatActivity {
+
     private Pedido pedido;
     private EditText etDescricao;
-    private boolean Urgente;
+    private int Urgente;
     private FloatingActionButton fab;
 
     @Override
@@ -38,10 +39,12 @@ public class PedidoActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
 
         etDescricao = findViewById(R.id.et_Descricao);
-        final CheckBox cbUrgente = (CheckBox) findViewById(R.id.checkBoxUrgente);
+      /*  final CheckBox cbUrgente = (CheckBox) findViewById(R.id.checkBoxUrgente);
         if (cbUrgente.isChecked()) {
-            cbUrgente.setChecked(false);
-        }
+           cbUrgente.setChecked(false);
+
+        }*/
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +52,7 @@ public class PedidoActivity extends AppCompatActivity {
                 if (!PedidoJsonParser.isConnectionInternet(getApplicationContext()))
                     Toast.makeText(getApplicationContext(), "Internet not available", Toast.LENGTH_SHORT).show();
                 else {
-                    if (etDescricao.getText().length()!=0 && cbUrgente.getText().length()!=0) {
+                    if (etDescricao.getText().length()!=0) {
                         if (pedido == null) {
                             SingletonGestorHospital.getInstance(getApplicationContext()).adicionarPedidoAPI(adicionarPedido(), getApplicationContext());
                             setResult(Activity.RESULT_OK);
@@ -66,10 +69,18 @@ public class PedidoActivity extends AppCompatActivity {
     private Pedido adicionarPedido(){
 
         //sao edittexts c o nome errado
+         CheckBox cbUrgente = (CheckBox) findViewById(R.id.checkBoxUrgente);
         String Descricao=etDescricao.getText().toString();
-        boolean cbUrgente = Urgente;
+        int urgente;
+        if(cbUrgente.isChecked()){
+            urgente=1;
+        }
+        else{
+            urgente=0;
+        }
 
-         Pedido pedido = new Pedido(0,Descricao,cbUrgente);
+
+         Pedido pedido = new Pedido(0,Descricao,urgente,0,1);
 
         return pedido;
     }
